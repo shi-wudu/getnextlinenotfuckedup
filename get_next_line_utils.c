@@ -36,7 +36,7 @@ char	*fstrjoin(char const *s1, char const *s2)
 	szofs1 = ft_strlenl(s1);
 	szofs2 = ft_strlenl(s2);
 	len = szofs1 + szofs2 + 1;
-	str = (char *)malloc(sizeof(char) * len);
+	str = (char *)malloc(sizeof(char) * len + 1);
 	if (!str)
 		return (NULL);
 	if (s1)
@@ -59,10 +59,10 @@ int newline(char *buffer)
     flag = 0;
     while(buffer[i])
     {
-        if (flag == 0 && buffer[i] == '\n')
-            flag = 1;
-        else if (flag == 1)
+        if (flag == 1)
             buffer[j++] = buffer[i];
+        if (buffer[i] == '\n')
+            flag = 1;
         buffer[i++] = 0;
     }
     return (flag);

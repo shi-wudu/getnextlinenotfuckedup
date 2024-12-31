@@ -9,17 +9,6 @@
 /*   Updated: 2024-12-17 19:35:31 by marleand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: marleand <marleand@student.42.fr>          #+#  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-12-29 17:22:13 by marleand          #+#    #+#             */
-/*   Updated: 2024-12-29 17:22:13 by marleand         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "get_next_line.h"
 
@@ -27,6 +16,7 @@ char	*get_next_line(int fd)
 {
 	static char	buffer[BUFFER_SIZE];
 	char		*line;
+	int	nl;
 
 	line = NULL;
 	if (fd < 0 || read(fd, 0, 0) < 0|| BUFFER_SIZE < 1)
@@ -34,12 +24,9 @@ char	*get_next_line(int fd)
 	while (read(fd, buffer, BUFFER_SIZE) > 0)
 	{
 		line = fstrjoin(line, buffer);
-		if (ft_strchr(buffer, '\n'))
-		{
-			newline(buffer);
+		if (newline(buffer))
 			break;
-		}
-		buffer[0] = '\0';
+			printf("meow");
 	}
 	return (line);
 }
@@ -57,7 +44,7 @@ int	main()
     }
     while ((line = get_next_line(fd)) != NULL)
     {
-        printf("%s", line);
+        printf("%s\n", line);
         free(line);
     }
     close(fd);

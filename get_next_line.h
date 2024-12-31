@@ -15,7 +15,7 @@
 
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1000
+#  define BUFFER_SIZE 8
 # endif
 
 # include <stdarg.h>
