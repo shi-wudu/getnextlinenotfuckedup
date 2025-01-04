@@ -6,7 +6,7 @@
 /*   By: marleand <marleand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:55:20 by marleand          #+#    #+#             */
-/*   Updated: 2025/01/04 17:18:53 by marleand         ###   ########.fr       */
+/*   Updated: 2025/01/04 17:21:02 by marleand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*get_next_line(int fd)
 			break ;
 		check = read(fd, buffer, BUFFER_SIZE);
 		if (check == -1)
-			free(line);
+			return (free(line), NULL);
 	}
 	return (line);
 }
