@@ -2,9 +2,12 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: marleand <marleand@student.42.fr>          #+#  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+        
+	+:+     */
+/*   By: marleand <marleand@student.42.fr>          #+#  +:+      
+	+#+        */
+/*                                                +#+#+#+#+#+  
+	+#+           */
 /*   Created: 2024-12-17 19:35:48 by marleand          #+#    #+#             */
 /*   Updated: 2024-12-17 19:35:48 by marleand         ###   ########.fr       */
 /*                                                                            */
@@ -43,27 +46,27 @@ char	*fstrjoin(char const *s1, char const *s2)
 		ft_memmove(str, s1, szofs1);
 	ft_memmove(str + szofs1, s2, szofs2);
 	str[szofs1 + szofs2] = '\0';
-	if (s1) // Free the old s1 if it exists
+	if (s1)
 		free((char *)s1);
 	return (str);
 }
 
-int newline(char *buffer)
+int	newline(char *buffer)
 {
-    int j;
-    int i;
-    int flag;
+	int	j;
+	int	i;
+	int	flag;
 
-    i = 0;
-    j = 0;
-    flag = 0;
-    while(buffer[i])
-    {
-        if (flag == 1)
-            buffer[j++] = buffer[i];
-        if (buffer[i] == '\n')
-            flag = 1;
-        buffer[i++] = 0;
-    }
-    return (flag);
+	i = 0;
+	j = 0;
+	flag = 0;
+	while (buffer[i])
+	{
+		if (flag == 1)
+			buffer[j++] = buffer[i];
+		if (buffer[i] == '\n')
+			flag = 1;
+		buffer[i++] = 0;
+	}
+	return (flag);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marleand <marleand@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/04 16:55:20 by marleand          #+#    #+#             */
+/*   Updated: 2025/01/04 17:04:41 by marleand         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
 char	*get_next_line(int fd)
@@ -12,12 +24,12 @@ char	*get_next_line(int fd)
 	{
 		line = fstrjoin(line, buffer);
 		if (newline(buffer))
-			break;
+			break ;
 	}
 	return (line);
 }
 
-# include <sys/types.h>
+/* # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
 int	main()
@@ -39,4 +51,4 @@ int	main()
     printf("BUFFER SIZE: %i\n", BUFFER_SIZE);
     close(fd);
     return (0);
-}
+} */
