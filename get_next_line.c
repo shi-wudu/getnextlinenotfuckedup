@@ -6,7 +6,7 @@
 /*   By: marleand <marleand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:55:20 by marleand          #+#    #+#             */
-/*   Updated: 2025/01/04 17:04:41 by marleand         ###   ########.fr       */
+/*   Updated: 2025/01/04 17:06:30 by marleand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*get_next_line(int fd)
 	char		*line;
 
 	line = NULL;
-	if (fd < 0 || BUFFER_SIZE < 1)
+	if (fd < 0 && fd > FOPEN_MAX || BUFFER_SIZE < 1)
 		return (line);
 	while (*buffer || read(fd, buffer, BUFFER_SIZE) > 0)
 	{
