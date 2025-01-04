@@ -1,32 +1,18 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: marleand <marleand@student.42.fr>          #+#  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-12-17 19:35:31 by marleand          #+#    #+#             */
-/*   Updated: 2024-12-17 19:35:31 by marleand         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "get_next_line.h"
 
 char	*get_next_line(int fd)
 {
 	static char	buffer[BUFFER_SIZE];
 	char		*line;
-	int	nl;
 
 	line = NULL;
-	if (fd < 0 || read(fd, 0, 0) < 0|| BUFFER_SIZE < 1)
+	if (fd < 0 || BUFFER_SIZE < 1)
 		return (line);
-	while (read(fd, buffer, BUFFER_SIZE) > 0)
+	while (*buffer || read(fd, buffer, BUFFER_SIZE) > 0)
 	{
 		line = fstrjoin(line, buffer);
 		if (newline(buffer))
 			break;
-			printf("meow");
 	}
 	return (line);
 }
@@ -47,6 +33,7 @@ int	main()
         printf("%s\n", line);
         free(line);
     }
+    printf("BUFFER SIZE: %i\n", BUFFER_SIZE);
     close(fd);
     return (0);
 }
