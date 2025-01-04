@@ -18,15 +18,9 @@
 #  define BUFFER_SIZE 8
 # endif
 
-# include <stdarg.h>
-# include <string.h>
 # include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
 # include "libft/libft.h"
+
 int newline(char *buffer);
 char	*get_next_line(int fd);
 char	*fstrjoin(char const *s1, char const *s2);
