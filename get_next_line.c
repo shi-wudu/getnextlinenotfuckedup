@@ -6,7 +6,7 @@
 /*   By: marleand <marleand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:55:20 by marleand          #+#    #+#             */
-/*   Updated: 2025/01/04 17:22:23 by marleand         ###   ########.fr       */
+/*   Updated: 2025/01/07 19:36:05 by marleand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,16 @@ char	*get_next_line(int fd)
 {
 	static char	buffer[BUFFER_SIZE];
 	char		*line;
-	int			check;
 
 	line = NULL;
 	if ((fd < 0 && fd > FOPEN_MAX) || BUFFER_SIZE < 1)
 		return (line);
-	check = read(fd, buffer, BUFFER_SIZE);
-	while (*buffer || check > 0)
+	while (*buffer || read(fd, buffer, BUFFER_SIZE) > 0)
 	{
 		line = fstrjoin(line, buffer);
 		if (newline(buffer))
 			break ;
-		check = read(fd, buffer, BUFFER_SIZE);
-		if (check == -1)
+		if (read(fd, buffer, BUFFER_SIZE) == -1)
 			return (free(line), NULL);
 	}
 	return (line);
@@ -51,10 +48,10 @@ int	main(void)
 	}
 	while ((line = get_next_line(fd)) != NULL)
 	{
-		printf("%s\n", line);
+		printf("%s", line);
 		free(line);
 	}
-	printf("BUFFER SIZE: %i\n", BUFFER_SIZE);
+	printf("\BUFFER SIZE: %i\n", BUFFER_SIZE);
 	close(fd);
 	return (0);
 }

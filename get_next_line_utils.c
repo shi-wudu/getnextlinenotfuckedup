@@ -24,6 +24,8 @@ static size_t	ft_strlenl(const char *s)
 		return (0);
 	while (s[i] && s[i] != '\n')
 		i++;
+		while(s[i] == '\n')
+		i++;
 	return (i);
 }
 
@@ -70,3 +72,29 @@ int	newline(char *buffer)
 	}
 	return (flag);
 }
+
+void	*ft_memmove(void *dest, const void *src, size_t n)
+{
+	size_t		i;
+	char		*dest1;
+	const char	*src1;
+
+	dest1 = (char *)dest;
+	src1 = (const char *)src;
+	i = -1;
+	if (!dest && !src)
+		return (NULL);
+	if (dest1 < src1)
+	{
+		while (++i < n)
+			dest1[i] = src1[i];
+	}
+	else
+	{
+		i = n;
+		while (i--)
+			dest1[i] = src1[i];
+	}
+	return (dest);
+}
+
