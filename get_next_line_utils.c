@@ -24,7 +24,7 @@ static size_t	ft_strlenl(const char *s)
 		return (0);
 	while (s[i] && s[i] != '\n')
 		i++;
-		while(s[i] == '\n')
+	while (s[i] == '\n')
 		i++;
 	return (i);
 }
@@ -97,4 +97,3 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-

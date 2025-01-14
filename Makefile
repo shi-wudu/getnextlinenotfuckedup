@@ -2,35 +2,28 @@ SRCS			=	get_next_line.c get_next_line_utils.c
 
 NAME			=	gnl.a
 
-LIBFT_PATH		=	./libft
-
-LIBFT			=	./libft/libft.a
-
 OBJS			=	$(SRCS:.c=.o)
 
 CC				=	cc
 
-CFLAGS			=	-Wall -Werror -Wextra
+CFLAGS			=	-Wall -Werror -Wextra -D BUFFER_SIZE=1
 
 all:		$(NAME)
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): 	$(OBJS) $(LIBFT)
-					ar rcs $(NAME) $(LIBFT) $(OBJS)
-$(LIBFT):
-					make -s -C $(LIBFT_PATH)
+$(NAME): 	$(OBJS)
+					ar rcs $(NAME) $(OBJS)
 
 bonus:		$(OBJS)
-					ar rcs $(NAME) $(OBJS) $(LIBFT)
+					ar rcs $(NAME) $(OBJS)
 
 clean:
 					rm -f $(OBJS)
 
 fclean: 	clean
-					rm -f $(NAME) $(LIBFT)
-					@make fclean -C $(LIBFT_PATH)
+					rm -f $(NAME)
 
 re:			fclean all
 
