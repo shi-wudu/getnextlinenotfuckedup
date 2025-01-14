@@ -24,7 +24,7 @@ static size_t	ft_strlenl(const char *s)
 		return (0);
 	while (s[i] && s[i] != '\n')
 		i++;
-	while (s[i] == '\n')
+	if (s[i] == '\n')
 		i++;
 	return (i);
 }

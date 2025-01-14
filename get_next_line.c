@@ -6,7 +6,7 @@
 /*   By: marleand <marleand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:55:20 by marleand          #+#    #+#             */
-/*   Updated: 2025/01/14 13:39:22 by marleand         ###   ########.fr       */
+/*   Updated: 2025/01/14 13:43:57 by marleand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*get_next_line(int fd)
 	}
 	return (line);
 }
-# include <sys/types.h>
+/* # include <sys/types.h>
 # include <fcntl.h>
 
 int	main(void)
@@ -52,4 +52,4 @@ int	main(void)
 	printf("\nBUFFER SIZE: %i\n", BUFFER_SIZE);
 	close(fd);
 	return (0);
-}
+} */
